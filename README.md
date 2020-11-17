@@ -86,11 +86,20 @@ Once logged into Jenkins, on the home screen:
 
 - Manage Jenkins -> Manage Plugins
 - Choose the *Available* tab
+
+    ![Available Plugins](docs/images/run-jenkins-to-aci-004.png)
+
 - Install the following plugins:
   - [AnsiColor](https://plugins.jenkins.io/ansicolor/)
   - [Azure Credentials](https://plugins.jenkins.io/azure-credentials/)
   - [Azure KeyVault](https://plugins.jenkins.io/azure-keyvault/)
 - Once all plugins are installed, restart Jenkins by navigating to the url: <aci_FQDN>:8080/restartFor tutorial purposes only, if you start to see error such as the screenshot below, you will need to enable proxy compatability:
+
+Next, you will need to create a Jenkins API Token to connect via jenkins-cli.  On the Jenkins Home screen:
+
+- Manage Jenkins -> Manage Users
+- Select the user you created -> Configure
+- API Token -> Add new Token
 
 ![API Token](docs/images/run-jenkins-to-aci-005.png)
 
