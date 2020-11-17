@@ -108,11 +108,14 @@ Once the Jenkins Pipeline is created, you should see a list of all the repositor
 
 ## How to Run a Jenkins Job
 
-1. Once you have saved the Jenkins Pipeline, you will be taken to the Job/Pipeline screen for the Job
+**Note**: When the Jenkins Job runs for the first time, the Job will fail due to the default value of the Azure KeyVault Url being incorrect.  Follow the instructions below to create a successful build.
+
+1. Once you have saved the Jenkins Pipeline, navigate to the *main* branch Job/Pipeline screen
 1. In the left-hand menu, choose *Build with Parameters*
 1. Replace the default value of *AZURE_KEYVAULT_URL* with the url of the KeyVault created by the [azure_admin.sh](scripts/azure_admin.sh) script
 1. In the bottom left corner, there is a *Build History* section that displays all the executed jobs.  Click on the latest number to view the output of the job
 1. On the *Build Screen*, you will want to choose *Console Output* to view the output of the job
+1. Be sure to press the *proceed* link in the output for the manual gate, which is explained in the next section
 1. Navigate to <https://as-{prefix}-jenkins-example.azurewebsites.net> to view the deployed evengrid-viewer-blazor application.  To learn how to use the application see instructions [here](https://github.com/azure-samples/eventgrid-viewer-blazor)
 
 ![Jenkins Run Job](docs/images/create-jenkins-job-004.png)
