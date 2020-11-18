@@ -46,7 +46,7 @@ Next, inside of the *Stages* section, you have one or more stages and each stage
 
 In the *secrets* array, you specify the name of the environment variable to store the Azure KeyVault secret, the name of the secret in the Azure KeyVault and the secret Type.
 
-In the *steps* section, we are using the [AnsiColor](https://plugins.jenkins.io/ansicolor/) plugin to color-code Jenkins build output.  Next, the [Azure Credentials](https://plugins.jenkins.io/azure-credentials/) plugin is configured by specifying the Jenkins Credential Id of the Azure Service Principal.  Last, the *dir* function is used to let Terraform know where the configuration files are located & terraform init is executed with paramaters from the Azure KeyVault.
+In the *steps* section, we are using the [AnsiColor](https://plugins.jenkins.io/ansicolor/) plugin to color-code Jenkins build output.  Next, the [Azure Credentials](https://plugins.jenkins.io/azure-credentials/) plugin is configured by specifying the Jenkins Credential Id of the Azure Service Principal.  Last, the *dir* function is used to let Terraform know where the configuration files are located and terraform init is executed with paramaters from the Azure KeyVault.
 
 ```yaml
         stage('Terraform Init'){
@@ -91,12 +91,12 @@ In the *steps* section, we are using the [AnsiColor](https://plugins.jenkins.io/
 Next, it is time to create the Jenkins Job.  Navigate to the <aci_FQDN>:8080 instance login.
 
 1. Click *New Item*
-1. In the Pipeline Wizard, give the Pipeline a name & choose *Multibranch Pipeline*
+1. In the Pipeline Wizard, give the Pipeline a name and choose *Multibranch Pipeline*
 
 ![Jenkins Pipeline - Multibranch](docs/images/create-jenkins-job-001.png)
 
 1. On the Pipeline Properties screen, enter a description
-1. Choose the appropriate GitHub credentials & GitHub repository url
+1. Choose the appropriate GitHub credentials and GitHub repository url
 1. For the Build Configuration section, the Mode should be *by Jenkinsfile*
 1. After this, save the Pipeline
 
