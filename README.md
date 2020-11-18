@@ -11,19 +11,19 @@ products:
 - azure-container-instances
 - azure-container-registry
 - azure-key-vault
-description: Get Jenkins installed quickly in Azure Container Instances and document how to deploy a sample application to Azure using Jenkins, jenkins-cli, Terraform & Azure KeyVault.
+description: Get Jenkins installed quickly in Azure Container Instances and document how to deploy a sample application to Azure using Jenkins, jenkins-cli, Terraform and Azure KeyVault.
 urlFragment: jenkins-terraform-azure-example
 ---
 
 # Jenkins Terraform Azure Example
 
-The purpose of this README is to document how to get Jenkins up & running quickly in Azure Container Instances & document how to deploy a [sample application](https://github.com/Azure-Samples/eventgrid-viewer-blazor) to Azure using Jenkins, jenkins-cli, Terraform & Azure KeyVault.  
+The purpose of this README is to document how to get Jenkins up and running quickly in Azure Container Instances and document how to deploy a [sample application](https://github.com/Azure-Samples/eventgrid-viewer-blazor) to Azure using Jenkins, jenkins-cli, Terraform and Azure KeyVault.  
 
 ![overview](docs/images/overview.png)
 
 ## Caveat
 
-Please note that this tutorial should not be viewed as an indepth guide on how to properly configure & secure Jenkins.  This guide attempts to get a Jenkins instance up & running quickly so those new to Jenkins can start to work with the software with very little configuration overhead.  For a guide on how to secure Jenkins, see the [Securing Jenkins](https://www.jenkins.io/doc/book/system-administration/security/) entry in the official Jenkins User Handbook.
+Please note that this tutorial should not be viewed as an indepth guide on how to properly configure and secure Jenkins.  This guide attempts to get a Jenkins instance up and running quickly so those new to Jenkins can start to work with the software with very little configuration overhead.  For a guide on how to secure Jenkins, see the [Securing Jenkins](https://www.jenkins.io/doc/book/system-administration/security/) entry in the official Jenkins User Handbook.
 
 ## Prerequisites
 
@@ -36,19 +36,19 @@ Please note that this tutorial should not be viewed as an indepth guide on how t
 
 [Jenkins Docker Image](https://github.com/jenkinsci/docker/blob/master/README.md)
 
-A custom Dockerfile was created to use the base jenkins image but also installs [terraform](https://www.terraform.io/downloads.html) & [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+A custom Dockerfile was created to use the base Jenkins image but also installs [terraform](https://www.terraform.io/downloads.html) and [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 ### Pre-Step Information
 
 A *prefix* will need to be supplied to all bash scripts.  When the scripts create resources in Azure, they will use the naming convention *{resource_type}-{prefix}-jenkins-example* ie *rg-cse-jenkins-example*.  
 
-Also note, some resources like Storage Accounts and Container Registries will not have any spaces in the name.  Please note that the resource names need to be unique & conform to [Azure Resource length rules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules), so choose a prefix based upon these guidelines.
+Also note, some resources like Storage Accounts and Container Registries will not have any spaces in the name.  Please note that the resource names need to be unique and conform to [Azure Resource length rules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules), so choose a prefix based upon these guidelines.
 
 Also, before installing Jenkins, it is recommended that you view the [troubleshooting](#troubleshooting) section.
 
 ### Step 1. - Run jenkins_to_aci.sh
 
-The *jenkins_to_aci.sh* script located in the *scripts* directory is used to create a Azure Container Registry, upload the custom Jenkins image to the Azure Container Registry & deploys an Azure Container Instance with a Storage Account file share mount.
+The *jenkins_to_aci.sh* script located in the *scripts* directory is used to create a Azure Container Registry, upload the custom Jenkins image to the Azure Container Registry and deploys an Azure Container Instance with a Storage Account file share mount.
 
 You can learn how to use the script by doing the following:
 
@@ -68,9 +68,9 @@ Run the following command in the command prompt to get the Jenkins Admin passwor
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-Log into Jenkins by navigating to <aci_FQDN>:8080 & do the following:
+Log into Jenkins by navigating to <aci_FQDN>:8080 and do the following:
 
-- Enter the admin password
+- Enter the Admin password
 
     ![Login](docs/images/run-jenkins-to-aci-001.png)
 
@@ -78,7 +78,7 @@ Log into Jenkins by navigating to <aci_FQDN>:8080 & do the following:
 
     ![Base Plugins](docs/images/run-jenkins-to-aci-002.png)
 
-- Create the first admin user
+- Create the first Admin user
 
     ![First Admin](docs/images/run-jenkins-to-aci-003.png)
 
@@ -148,11 +148,11 @@ You can learn how to use the script by doing the following:
 Once you have run the script:
 
 - Log into Jenkins
-- Manage Jenkins -> Manage Credentials & you should see the credentials the script loaded into Jenkins
+- Manage Jenkins -> Manage Credentials and you should see the credentials the script loaded into Jenkins
 
 ![Jenkins Admin](docs/images/run-jenkins-admin-001.png)
 
-### Step 4. - Create & Run Jenkins Job
+### Step 4. - Create and Run Jenkins Job
 
 See [Create_Jenkins_Job](./Create_Jenkins_Job.md) Document
 
